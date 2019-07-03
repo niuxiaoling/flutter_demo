@@ -1,0 +1,83 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+ProcessException: ProcessException: Process "/usr/bin/xcrun" exited abnormally:
+An error was encountered processing the command (domain=NSMachErrorDomain, code=-308):
+The operation couldn’t be completed. (Mach error -308 - (ipc/mig) server died)
+  Command: /usr/bin/xcrun simctl install 1E27019C-AC6F-479A-8F1D-3FF78F24704E /Users/niuxiaoling/AndroidStudioProjects/flutter_app/build/ios/iphonesimulator/Runner.app
+
+```
+#0      runCheckedAsync (package:flutter_tools/src/base/process.dart:255:5)
+<asynchronous suspension>
+#1      SimControl.install (package:flutter_tools/src/ios/simulators.dart:127:16)
+#2      IOSSimulator._setupUpdatedApplicationBundle (package:flutter_tools/src/ios/simulators.dart:410:31)
+<asynchronous suspension>
+#3      IOSSimulator.startApp (package:flutter_tools/src/ios/simulators.dart:309:15)
+<asynchronous suspension>
+#4      FlutterDevice.runHot (package:flutter_tools/src/resident_runner.dart:370:54)
+#5      _asyncThenWrapperHelper.<anonymous closure> (dart:async-patch/async_patch.dart:77:64)
+#6      _rootRunUnary (dart:async/zone.dart:1132:38)
+#7      _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#8      _FutureListener.handleValue (dart:async/future_impl.dart:126:18)
+#9      Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:639:45)
+#10     Future._propagateToListeners (dart:async/future_impl.dart:668:32)
+#11     Future._complete (dart:async/future_impl.dart:473:7)
+#12     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#13     _AsyncAwaitCompleter.complete.<anonymous closure> (dart:async-patch/async_patch.dart:33:20)
+#14     _rootRun (dart:async/zone.dart:1124:13)
+#15     _CustomZone.run (dart:async/zone.dart:1021:19)
+#16     _CustomZone.bindCallback.<anonymous closure> (dart:async/zone.dart:947:23)
+#17     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#18     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#19     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:115:13)
+#20     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:172:5)
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel beta, v1.6.3, on Mac OS X 10.14.5 18F203, locale zh-Hans-CN)
+    [32m•[39m Flutter version 1.6.3 at /Users/niuxiaoling/Documents/fluttersdk/flutter
+    [32m•[39m Framework revision bc7bc94083 (6 weeks ago), 2019-05-23 10:29:07 -0700
+    [32m•[39m Engine revision 8dc3a4cde2
+    [32m•[39m Dart version 2.3.2 (build 2.3.2-dev.0.0 e3edfd36b2)
+
+[33m[!][39m Android toolchain - develop for Android devices (Android SDK version 29.0.0)
+    [32m•[39m Android SDK at /Users/niuxiaoling/Library/Android/sdk
+    [32m•[39m Android NDK location not configured (optional; useful for native profiling support)
+    [32m•[39m Platform android-29, build-tools 29.0.0
+    [32m•[39m ANDROID_HOME = /Users/niuxiaoling/Library/Android/sdk
+    [32m•[39m Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    [32m•[39m Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1343-b01)
+    [31m✗[39m Android license status unknown.
+      Try re-installing or updating your Android SDK Manager.
+      See https://developer.android.com/studio/#downloads or visit https://flutter.dev/setup/#android-setup for detailed instructions.
+
+[33m[!][39m iOS toolchain - develop for iOS devices (Xcode 10.2.1)
+    [32m•[39m Xcode at /Applications/Xcode.app/Contents/Developer
+    [32m•[39m Xcode 10.2.1, Build version 10E1001
+    [32m•[39m ios-deploy 1.9.4
+    [31m✗[39m CocoaPods installed but not initialized.
+        CocoaPods is used to retrieve the iOS platform side's plugin code that responds to your plugin usage on the Dart side.
+        Without resolving iOS dependencies with CocoaPods, plugins will not work on iOS.
+        For more info, see https://flutter.dev/platform-plugins
+      To initialize CocoaPods, run:
+        pod setup
+      once to finalize CocoaPods' installation.
+
+[32m[✓][39m Android Studio (version 3.4)
+    [32m•[39m Android Studio at /Applications/Android Studio.app/Contents
+    [32m•[39m Flutter plugin version 36.1.1
+    [32m•[39m Dart plugin version 183.6270
+    [32m•[39m Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1343-b01)
+
+[32m[✓][39m Connected device (1 available)
+    [32m•[39m iPhone Xʀ • 1E27019C-AC6F-479A-8F1D-3FF78F24704E • ios • com.apple.CoreSimulator.SimRuntime.iOS-12-2 (simulator)
+
+[33m![39m Doctor found issues in 2 categories.
+```
